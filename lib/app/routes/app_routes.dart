@@ -18,6 +18,7 @@ abstract class Routes {
   static const ACTIVITY_LOG = _Paths.ACTIVITY_LOG;
   static const EMERGENCY_ALERTS = _Paths.EMERGENCY_ALERTS;
   static const FEEDBACK_SUBMISSIONS = _Paths.FEEDBACK_SUBMISSIONS;
+  static const ALERT_LOG = _Paths.ALERT_LOG;
 }
 
 abstract class _Paths {
@@ -37,4 +38,5 @@ abstract class _Paths {
   static const ACTIVITY_LOG = '/activity-log';
   static const EMERGENCY_ALERTS = '/emergency-alerts';
   static const FEEDBACK_SUBMISSIONS = '/feedback-submissions';
+  static const ALERT_LOG = '/alert-log';
 }

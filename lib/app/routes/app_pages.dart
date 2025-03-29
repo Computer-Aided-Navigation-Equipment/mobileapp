@@ -4,6 +4,8 @@ import '../modules/about-us/bindings/about_us_binding.dart';
 import '../modules/about-us/views/about_us_view.dart';
 import '../modules/activity-log/bindings/activity_log_binding.dart';
 import '../modules/activity-log/views/activity_log_view.dart';
+import '../modules/alert-log/bindings/alert_log_binding.dart';
+import '../modules/alert-log/views/alert_log_view.dart';
 import '../modules/begin-path/bindings/begin_path_binding.dart';
 import '../modules/begin-path/views/begin_path_view.dart';
 import '../modules/contacts/bindings/contacts_binding.dart';
@@ -113,6 +115,11 @@ class AppPages {
       name: _Paths.FEEDBACK_SUBMISSIONS,
       page: () => const FeedbackSubmissionsView(),
       binding: FeedbackSubmissionsBinding(),
+    ),
+    GetPage(
+      name: _Paths.ALERT_LOG,
+      page: () => const AlertLogView(),
+      binding: AlertLogBinding(),
     ),
   ];
 }
