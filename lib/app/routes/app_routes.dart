@@ -13,6 +13,11 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const LOCATIONS = _Paths.LOCATIONS;
   static const CONTACTS = _Paths.CONTACTS;
+  static const BEGIN_PATH = _Paths.BEGIN_PATH;
+  static const MANAGE_USERS = _Paths.MANAGE_USERS;
+  static const ACTIVITY_LOG = _Paths.ACTIVITY_LOG;
+  static const EMERGENCY_ALERTS = _Paths.EMERGENCY_ALERTS;
+  static const FEEDBACK_SUBMISSIONS = _Paths.FEEDBACK_SUBMISSIONS;
 }
 
 abstract class _Paths {
@@ -27,4 +32,9 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const LOCATIONS = '/locations';
   static const CONTACTS = '/contacts';
+  static const BEGIN_PATH = '/begin-path';
+  static const MANAGE_USERS = '/manage-users';
+  static const ACTIVITY_LOG = '/activity-log';
+  static const EMERGENCY_ALERTS = '/emergency-alerts';
+  static const FEEDBACK_SUBMISSIONS = '/feedback-submissions';
 }
