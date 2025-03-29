@@ -1,0 +1,2 @@
+C:/Users/slims/Desktop/smart_cane_app/android/app/.cxx/Debug/6s275h4d/x86/CMakeFiles/edit_cache.dir
+C:/Users/slims/Desktop/smart_cane_app/android/app/.cxx/Debug/6s275h4d/x86/CMakeFiles/rebuild_cache.dir
