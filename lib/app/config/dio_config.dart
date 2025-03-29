@@ -4,7 +4,7 @@ import 'package:smart_cane_app/AppConstants.dart';
 
 class DioConfig {
   static final Dio _dio = Dio(BaseOptions(
-    baseUrl: "http://192.168.0.103:6001/api", // Use 10.0.2.2 for localhost in Android emulator
+    baseUrl: "http://192.168.0.104:6001/api", // Use 10.0.2.2 for localhost in Android emulator
     headers: {
       'Content-Type': 'application/json',
     },
@@ -28,7 +28,9 @@ class DioConfig {
         return handler.next(response);
       },
       onError: (DioException error, handler) async {
+        print("this case");
         if (error.response?.statusCode == 401) {
+          print("Token expired");
           RequestOptions originalRequest = error.requestOptions;
 
           if (originalRequest.extra['retry'] == true) {
