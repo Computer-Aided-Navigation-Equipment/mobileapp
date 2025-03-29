@@ -205,6 +205,12 @@ class ProfileView extends GetView<ProfileController> {
                     onPressed: controller.handleLogout,
                     buttonText:'Logout',
                   ),
+                  TextButton(onPressed: (){
+                    Get.toNamed('/feedback');
+                  }, child: Text("User Feedback", style: TextStyle(
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline
+                  ),)),
 
                 ],
               ),
