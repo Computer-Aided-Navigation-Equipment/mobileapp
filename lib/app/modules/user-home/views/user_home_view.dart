@@ -32,77 +32,128 @@ class UserHomeView extends GetView<UserHomeController> {
             ],
             centerTitle: true,
           ),
-          body: Container(
+          body: controller.isAdmin
+              ? Container(
             padding: EdgeInsets.all(20),
-            child: ListView(
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("My Location"),
-                    TextFormField(
-                      minLines: 3,
-                      maxLines: 5,
-                      controller: controller.location,
-                      decoration: InputDecoration(
-                        labelText: "Location",
-                        border: OutlineInputBorder(),
+                  child: ListView(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                            child: NavigationItem(
+                                title: "Manage users",
+                                path: "/navigation",
+                                imagePath: "assets/images/manage-users.png"),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: NavigationItem(
+                                title: "Activity Log",
+                                path: "/activity",
+                                imagePath: "assets/images/activity-log.png"),
+                          ),
+                        ],
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your location';
-                        }
-                        return null;
-                      },
-                    )
-                  ],
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: NavigationItem(
-                          title: "Navigation",
-                          path: "/navigation",
-                          imagePath: "assets/images/navigation.png"),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Expanded(
-                      child: NavigationItem(
-                          title: "Begin Path",
-                          path: "/begin-path",
-                          imagePath: "assets/images/path.png"),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: NavigationItem(
-                          title: "Saved Contacts",
-                          path: "/contacts",
-                          imagePath: "assets/images/contacts.png"),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Expanded(
-                      child: NavigationItem(
-                          title: "Saved Locations",
-                          path: "/locations",
-                          imagePath: "assets/images/locations.png"),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ));
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                            child: NavigationItem(
+                                title: "Emergency Alerts",
+                                path: "/emergency-alerts",
+                                imagePath: "assets/images/emegency-alerts.png"),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: NavigationItem(
+                                title: "Feedback Submissions",
+                                path: "/feedback-submissions",
+                                imagePath: "assets/images/feedback-submissions.png"),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              : Container(
+                  padding: EdgeInsets.all(20),
+                  child: ListView(
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("My Location"),
+                          TextFormField(
+                            minLines: 3,
+                            maxLines: 5,
+                            controller: controller.location,
+                            decoration: InputDecoration(
+                              labelText: "Location",
+                              border: OutlineInputBorder(),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your location';
+                              }
+                              return null;
+                            },
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                            child: NavigationItem(
+                                title: "Navigation",
+                                path: "/navigation",
+                                imagePath: "assets/images/navigation.png"),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: NavigationItem(
+                                title: "Begin Path",
+                                path: "/begin-path",
+                                imagePath: "assets/images/path.png"),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Expanded(
+                            child: NavigationItem(
+                                title: "Saved Contacts",
+                                path: "/contacts",
+                                imagePath: "assets/images/contacts.png"),
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Expanded(
+                            child: NavigationItem(
+                                title: "Saved Locations",
+                                path: "/locations",
+                                imagePath: "assets/images/locations.png"),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ));
     });
   }
 }
