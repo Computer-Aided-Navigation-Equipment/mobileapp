@@ -197,9 +197,6 @@ class NavigationController extends GetxController {
         },
       );
 
-      print("36.91634527212171,10.284255709555794");
-      print('${destLatLng.latitude},${destLatLng.longitude}');
-      print(directionsResponse.data);
 
       if (directionsResponse.data['routes'].isEmpty) {
         Get.snackbar('Error', 'No route found',

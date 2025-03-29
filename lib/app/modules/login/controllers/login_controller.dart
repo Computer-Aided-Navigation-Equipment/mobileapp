@@ -24,9 +24,10 @@ class LoginController extends GetxController {
     }
 
     try {
+      print("logging in");
       final response = await dio.post('/user/login',
           data: {"email": email.text, "password": password.text});
-
+print("got response");
       String accessToken = response.data['accessToken'];
       String refreshToken = response.data['refreshToken'];
 
@@ -62,8 +63,18 @@ class LoginController extends GetxController {
   }
 
   @override
-  void onInit() {
+  void onInit()async {
     super.onInit();
+    // Check if the user is logged in
+
+    String? accessToken = await storage.read(key: 'accessToken');
+
+    print("Access Token: $accessToken");
+    if (accessToken != null) {
+      Get.offAndToNamed("/user-home");
+    } else {
+      Get.offAndToNamed("/login");
+    }
   }
 
   @override
