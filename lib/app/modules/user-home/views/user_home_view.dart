@@ -52,7 +52,7 @@ class UserHomeView extends GetView<UserHomeController> {
                           Expanded(
                             child: NavigationItem(
                                 title: "Activity Log",
-                                path: "/activity-log",
+                                path: "/user-home",
                                 imagePath: "assets/images/activity-log.png"),
                           ),
                         ],
@@ -64,7 +64,7 @@ class UserHomeView extends GetView<UserHomeController> {
                           Expanded(
                             child: NavigationItem(
                                 title: "Emergency Alerts",
-                                path: "/emergency-alerts",
+                                path: "/user-home",
                                 imagePath: "assets/images/emegency-alerts.png"),
                           ),
                           SizedBox(

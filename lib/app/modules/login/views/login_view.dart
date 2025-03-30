@@ -18,9 +18,8 @@ class LoginView extends GetView<LoginController> {
         return Center(
           child: Container(
             padding: EdgeInsets.all(20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+            child: ListView(
+
               children: [
                 Image.asset(
                   'assets/images/logo.png',
@@ -28,7 +27,7 @@ class LoginView extends GetView<LoginController> {
                   height: 200,
                 ),
                 SizedBox(height: 20),
-                TitleText(title: "Sign In"),
+                Center(child: TitleText(title: "Sign In")),
                 SizedBox(height: 20),
                 Form(
                   key: _formKey,
