@@ -8,7 +8,7 @@ import 'package:smart_cane_app/app/config/dio_config.dart';
 class FeedbackSubmissionsController extends GetxController {
   final Dio dio = DioConfig.instance;
 
-  var feedbacks = <dynamic>[].obs;
+  var feedbacks =[];
   var selectedFeedback = Rxn<dynamic>();
   bool isLoading = false;
 
@@ -24,6 +24,16 @@ class FeedbackSubmissionsController extends GetxController {
       update();
       final response = await dio.get('/feedback/get-all');
       feedbacks.assignAll(response.data['feedbacks']);
+      if (feedbacks.isEmpty) {
+        Get.snackbar(
+          'No Feedbacks',
+          'No feedbacks available',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.yellow,
+          colorText: Colors.black,
+        );
+      }
+
     } on DioException catch (e) {
       Get.snackbar(
         'Error',
@@ -44,7 +54,7 @@ class FeedbackSubmissionsController extends GetxController {
       AlertDialog(
         title: const Text('Feedback Details'),
         content: SingleChildScrollView(
-          child: Obx(() {
+          child: GetBuilder<FeedbackSubmissionsController>(builder: (controller){
             final feedback = selectedFeedback.value;
             if (feedback == null) return const SizedBox();
 
@@ -85,7 +95,7 @@ class FeedbackSubmissionsController extends GetxController {
                 ),
               ],
             );
-          }),
+          })
         ),
         actions: [
           TextButton(
