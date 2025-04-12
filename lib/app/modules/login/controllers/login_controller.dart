@@ -70,12 +70,8 @@ print("got response");
     String? accessToken = await storage.read(key: 'accessToken');
 
     print("Access Token: $accessToken");
-    if (accessToken != null) {
-      Get.offAndToNamed("/user-home");
-    } else {
-      Get.offAndToNamed("/login");
+    Get.offAndToNamed("/user-home");
     }
-  }
 
   @override
   void onReady() {

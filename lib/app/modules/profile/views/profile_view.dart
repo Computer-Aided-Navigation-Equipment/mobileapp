@@ -104,10 +104,8 @@ class ProfileView extends GetView<ProfileController> {
                         lastDate: DateTime.now(),
                       );
 
-                      if (pickedDate != null) {
-                        controller.dateOfBirth.text = pickedDate.toLocal().toString().split(' ')[0];
-                      }
-                    },
+                      controller.dateOfBirth.text = pickedDate.toLocal().toString().split(' ')[0];
+                                        },
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your date of birth';

@@ -153,7 +153,7 @@ class NavigationController extends GetxController {
       );
       currentPosition.value = LatLng(position.latitude, position.longitude);
       await fetchRoute();
-    } on DioException catch (e) {
+    } on DioException {
       Get.snackbar('Error', 'Failed to get current location',
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.red,

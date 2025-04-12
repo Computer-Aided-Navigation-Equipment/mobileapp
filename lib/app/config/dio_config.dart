@@ -18,10 +18,8 @@ class DioConfig {
       onRequest: (options, handler) async {
         String? accessToken = await _storage.read(key: 'accessToken');
 
-        if (accessToken != null) {
-          options.headers['Authorization'] = 'Bearer $accessToken';
-        }
-
+        options.headers['Authorization'] = 'Bearer $accessToken';
+      
         return handler.next(options);
       },
       onResponse: (response, handler) {

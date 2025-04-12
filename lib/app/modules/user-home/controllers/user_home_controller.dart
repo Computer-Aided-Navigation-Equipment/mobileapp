@@ -36,14 +36,12 @@ void setIsAdmin(bool value) {
     super.onInit();
 
     String? accessToken = await storage.read(key: 'accessToken');
-    if (accessToken != null) {
-      final jwt = JWT.decode(accessToken);
-      if (jwt.payload['userType'] == "admin") {
-        isAdmin = true;
-        update();
-      }
+    final jwt = JWT.decode(accessToken);
+    if (jwt.payload['userType'] == "admin") {
+      isAdmin = true;
+      update();
     }
-  }
+    }
 
   @override
   void onReady() {
