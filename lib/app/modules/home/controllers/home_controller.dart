@@ -13,14 +13,9 @@ class HomeController extends GetxController {
     String? accessToken = await storage.read(key: 'accessToken');
 
     print("Access Token: $accessToken");
-    if (accessToken != null) {
-      // User is logged in, navigate to user home
-      Get.offAndToNamed("/user-home");
-    } else {
-      // User is not logged in, navigate to login
-      Get.offAndToNamed("/login");
+    // User is logged in, navigate to user home
+    Get.offAndToNamed("/user-home");
     }
-  }
 
   @override
   void onReady() {
