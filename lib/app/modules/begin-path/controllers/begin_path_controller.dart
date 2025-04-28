@@ -21,7 +21,7 @@ class BeginPathController extends GetxController {
   void onInit() {
     super.onInit();
 
-      getDetailedDirections("Tunis");
+      getDetailedDirections("Bahrain");
 
   }
   Future<void> getDetailedDirections(String destination) async {
