@@ -110,7 +110,7 @@ class RegisterView extends GetView<RegisterController> {
                                 lastDate: DateTime.now(),
                               );
 
-                              controller.dateOfBirth.text = pickedDate.toLocal().toString().split(' ')[0];
+                              controller.dateOfBirth.text = pickedDate!.toLocal().toString().split(' ')[0];
                                                         },
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -178,6 +178,7 @@ class RegisterView extends GetView<RegisterController> {
                           ),
                           SizedBox(height: 20),
 
+                          controller.loading?CircularProgressIndicator():
                           PrimaryButton(buttonText: "Sign Up", onPressed: controller.handleRegister)
 
                         ],

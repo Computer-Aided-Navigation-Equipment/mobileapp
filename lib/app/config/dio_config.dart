@@ -2,9 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:smart_cane_app/AppConstants.dart';
 
+
 class DioConfig {
   static final Dio _dio = Dio(BaseOptions(
-    baseUrl: "http://192.168.0.104:6001/api", // Use 10.0.2.2 for localhost in Android emulator
+    baseUrl: "http://192.168.56.1:6001/api", // Use 10.0.2.2 for localhost in Android emulator
     headers: {
       'Content-Type': 'application/json',
     },

@@ -48,7 +48,7 @@ class FeedbackSubmissionsView extends GetView<FeedbackSubmissionsController> {
                               Expanded(
                                 child: Text(
                                   '${DateFormat.yMd().add_jm().format(DateTime.parse(feedback['createdAt']))} | '
-                                      '${feedback['userId']['firstName']} ${feedback['userId']['lastName']} : '
+                                      '${feedback['userId']?['firstName']} ${feedback['userId']?['lastName']} : '
                                       '${feedback['thoughts']}',
                                 ),
                               ),

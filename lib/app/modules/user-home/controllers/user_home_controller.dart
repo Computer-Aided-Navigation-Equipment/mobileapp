@@ -8,12 +8,10 @@ class UserHomeController extends GetxController {
 
   TextEditingController location = TextEditingController();
   final FlutterSecureStorage storage = FlutterSecureStorage();
-  bool isAdmin= false;
+  bool isAdmin = false;
 
-
-  Future<String> decodeJwt(String token) async{
+  Future<String> decodeJwt(String token) async {
     try {
-
       final jwt = JWT.decode(token);
 
       // You can print the decoded JWT object or return it as a string
@@ -22,26 +20,29 @@ class UserHomeController extends GetxController {
       return 'Failed to decode JWT token: $e';
     }
   }
-void logout (){
-  Get.offAllNamed("/");
-  storage.delete(key: "accessToken");
-  storage.delete(key: "refreshToken");
-}
 
-void setIsAdmin(bool value) {
+  void logout() {
+    Get.offAllNamed("/");
+    storage.delete(key: "accessToken");
+    storage.delete(key: "refreshToken");
+  }
 
-}
+  void setIsAdmin(bool value) {}
   @override
-  void onInit()async {
+  void onInit() async {
     super.onInit();
 
     String? accessToken = await storage.read(key: 'accessToken');
+    if (accessToken == null || accessToken.isEmpty) {
+      Get.offAllNamed("/login");
+      return;
+    }
     final jwt = JWT.decode(accessToken);
     if (jwt.payload['userType'] == "admin") {
       isAdmin = true;
       update();
     }
-    }
+  }
 
   @override
   void onReady() {
@@ -52,5 +53,4 @@ void setIsAdmin(bool value) {
   void onClose() {
     super.onClose();
   }
-
 }

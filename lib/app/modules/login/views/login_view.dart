@@ -63,10 +63,11 @@ class LoginView extends GetView<LoginController> {
                         },
                       ),
                       SizedBox(height: 20),
-                      PrimaryButton(
+                      controller.loading?CircularProgressIndicator():PrimaryButton(
                         onPressed: controller.handleLogin,
                         buttonText:'Sign In',
                       ),
+
                     ],
                   ),
                 ),

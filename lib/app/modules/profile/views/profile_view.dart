@@ -104,7 +104,7 @@ class ProfileView extends GetView<ProfileController> {
                         lastDate: DateTime.now(),
                       );
 
-                      controller.dateOfBirth.text = pickedDate.toLocal().toString().split(' ')[0];
+                      controller.dateOfBirth.text = pickedDate!.toLocal().toString().split(' ')[0];
                                         },
                     validator: (value) {
                       if (value == null || value.isEmpty) {

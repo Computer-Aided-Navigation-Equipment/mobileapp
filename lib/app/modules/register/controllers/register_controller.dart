@@ -18,6 +18,8 @@ class RegisterController extends GetxController {
 
   String accountType = "User";
 
+  bool loading=false;
+
   bool obscureText = true;
   final dio = DioConfig.instance;
   final FlutterSecureStorage storage = FlutterSecureStorage();
@@ -32,6 +34,9 @@ class RegisterController extends GetxController {
     }
 
     try {
+      print("registering");
+      loading = true;
+      update();
       final response = await dio.post('/user/register', data: {
         "email": email.text,
         "password": password.text,
@@ -70,6 +75,9 @@ class RegisterController extends GetxController {
           colorText: Colors.white);
     } catch (error) {
       print("General error: $error");
+    } finally {
+      loading = false;
+      update();
     }
   }
 

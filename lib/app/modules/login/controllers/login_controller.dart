@@ -11,6 +11,7 @@ class LoginController extends GetxController {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   bool obscureText = true;
+  bool loading = false;
   final dio = DioConfig.instance;
   final FlutterSecureStorage storage = FlutterSecureStorage();
 
@@ -25,9 +26,13 @@ class LoginController extends GetxController {
 
     try {
       print("logging in");
+      loading = true;
+      update();
+      print(email.text);
+      print(password.text);
       final response = await dio.post('/user/login',
           data: {"email": email.text, "password": password.text});
-print("got response");
+      print("got response");
       String accessToken = response.data['accessToken'];
       String refreshToken = response.data['refreshToken'];
 
@@ -59,11 +64,14 @@ print("got response");
           colorText: Colors.white);
     } catch (error) {
       print("General error: $error");
+    } finally {
+      loading = false;
+      update();
     }
   }
 
   @override
-  void onInit()async {
+  void onInit() async {
     super.onInit();
     // Check if the user is logged in
 
@@ -71,7 +79,7 @@ print("got response");
 
     print("Access Token: $accessToken");
     Get.offAndToNamed("/user-home");
-    }
+  }
 
   @override
   void onReady() {
